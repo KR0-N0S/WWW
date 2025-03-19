@@ -1,0 +1,192 @@
+/* src/newApproach/components/Navbar.css */
+
+/* Kolor przewodni */
+:root {
+  --main-color: #01854b;
+  --white: #fff;
+  --hover-color: #026b3d; /* ciemniejszy odcień zieleni, np. na hover */
+}
+
+/* Bazowe style kontenera navbar */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;         /* Upewnij się, że jest 100% */
+  box-sizing: border-box;
+  background-color: var(--main-color);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: height 0.3s ease;
+}
+
+/* Gdy NIE zescrollowane */
+.navbar-container.not-scrolled {
+  height: 80px;
+}
+
+/* Gdy zescrollowane */
+.navbar-container.scrolled {
+  height: 60px;
+}
+
+/* Lewa sekcja: logo i tekst */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover; /* Dzięki temu obraz się przytnie */
+}
+
+.navbar-logo-text {
+  font-weight: bold;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+/* ***************** Widok MOBILE ***************** */
+.navbar-right-mobile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Styl hamburgera */
+.hamburger-icon {
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* Każdy pasek hamburgera */
+.hamburger-icon div {
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+}
+
+/* Rozwijane menu mobile */
+.mobile-menu {
+  position: absolute;
+  top: 60px; /* p.s. jeżeli chcesz, żeby menu "nadążało" za animacją, musisz dynamicznie kalkulować top */
+  right: 0;
+  background-color: var(--main-color);
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Linki / przyciski w mobile menu */
+.mobile-link,
+.mobile-button {
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--white);
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.mobile-button {
+  border: 2px solid var(--white);
+  border-radius: 20px;
+  background-color: transparent;
+  padding: 8px 16px;
+}
+
+/* Inna wersja dla przycisku "Wypróbuj za darmo" w mobile */
+.mobile-button.register {
+  background-color: var(--white);
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+/* ***************** Widok DESKTOP ***************** */
+.navbar-right-desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Menu linki desktopowe */
+.desktop-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  color: var(--white);
+  opacity: 0.8;
+}
+
+/* Język */
+.language {
+  color: var(--white);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Przyciski desktop */
+.login-btn {
+  border: 2px solid var(--white);
+  color: var(--white);
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: var(--hover-color);
+}
+
+.register-btn {
+  background-color: var(--white);
+  color: var(--main-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.register-btn:hover {
+  background-color: #fff;
+  opacity: 0.9;
+}
+
+/* ***************** Media queries ***************** */
+/* Zapewniamy, że hamburger i desktop linki nie pojawiają się naraz */
+@media (min-width: 768px) {
+  .navbar-right-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-right-desktop {
+    display: none;
+  }
+}
