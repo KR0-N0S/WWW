@@ -1,0 +1,19 @@
+/* Przykladowy układ flex */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;        /* wypełnia całe okno przeglądarki */
+  overflow: hidden;     /* ukrywamy ewentualne scrollbary na poziomie głównym */
+}
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;              /* zajmuje resztę szerokości poza sidebar */
+  background: #f9f9f9;  /* tło prawej części */
+}
+
+.dashboard-content {
+  flex: 1;             /* rośnie, by zająć całą dostępną przestrzeń */
+  overflow-y: auto;    /* scroll pionowy, jeśli zawartość jest wysoka */
+  padding: 20px;       /* margines wewnętrzny */
+}

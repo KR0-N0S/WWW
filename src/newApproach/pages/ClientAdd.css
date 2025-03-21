@@ -1,0 +1,50 @@
+/* AddClientPage.css */
+.add-client-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.add-client-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-section label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-row {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #adb5bd;
+  color: #fff;
+}
+
+.btn-save {
+  background-color: #0d6efd;
+  color: #fff;
+}

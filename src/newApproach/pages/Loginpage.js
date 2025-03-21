@@ -18,6 +18,8 @@ function LoginPage() {
         password: password
       });
       localStorage.setItem('token', response.data.token);
+	  // Dodaj zapis obiektu użytkownika (jeśli backend go zwraca)
+    localStorage.setItem('user', JSON.stringify(response.data.user));
 
       // Po logowaniu przejście do /dashboard
       navigate('/dashboard');
