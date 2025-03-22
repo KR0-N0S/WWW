@@ -1,0 +1,25 @@
+:root {
+  /* Kolory przewodnie */
+  --primary-color: #018249;
+  --primary-hover: #016a3b;
+  --secondary-color: #e2e8f0;
+  --secondary-hover: #cbd5e0;
+  --text-color: #333333;
+  --text-light: #555555;
+  --background-light: #f8f9fa;
+  --error-color: #e53e3e;
+  --border-color: #dddddd;
+  
+  /* Cienie */
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  /* Zaokrąglenia */
+  --border-radius: 10px;
+  --input-radius: 6px;
+  
+  /* Czcionki */
+  --font-family: 'Roboto', 'Segoe UI', sans-serif;
+  --font-size-normal: 16px;
+  --font-size-small: 14px;
+  --font-size-title: 1.5rem;
+}

@@ -13,7 +13,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       // Wywołanie endpointu logowania
-      const response = await api.post('/api/auth/login', {
+      const response = await api.post('/auth/login', {
         email: email,
         password: password
       });

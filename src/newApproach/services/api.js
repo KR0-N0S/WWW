@@ -1,17 +1,35 @@
 import axios from 'axios';
 
-// Adres Twojego backendu, np. http://83.150.236.135:4000
+// Zmiana na relatywny URL zamiast absolutnego
 const api = axios.create({
-  baseURL: 'http://83.150.236.135:4000'
+  baseURL: process.env.REACT_APP_API_BASE_URL
 });
 
-// Interceptor dołączający token do nagłówka (Authorization: Bearer <token>)
+// Interceptor sprawdzający token w obu możliwych miejscach
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    // Najpierw sprawdź token bezpośrednio
+    let token = localStorage.getItem('token');
+    
+    // Jeśli nie ma tokenu, sprawdź w obiekcie user
+    if (!token) {
+      const userStr = localStorage.getItem('user');
+      if (userStr) {
+        try {
+          const userData = JSON.parse(userStr);
+          if (userData && userData.token) {
+            token = userData.token;
+          }
+        } catch (e) {
+          console.error("Błąd parsowania danych użytkownika:", e);
+        }
+      }
+    }
+    
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    
     return config;
   },
   (error) => Promise.reject(error)
